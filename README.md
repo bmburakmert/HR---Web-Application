@@ -1,4 +1,4 @@
-# HR---Web-Application
+# HR-Web Application
 Human Resources Web Application
 
 This project was bootstrapped with Create React App.
