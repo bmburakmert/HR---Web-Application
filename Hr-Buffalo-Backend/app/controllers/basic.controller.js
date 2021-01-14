@@ -4,19 +4,26 @@ const Basic = db.basics;
 
 exports.create = (req, res) => { 
   // Validate if user is exist
-  // ...
+  if (!req.body.firstName) {
+    res.status(400).send({message: "Content can not be empty!"});
+    return;
+  }
 
-  // Create a Tutorial
+// Create a User
   const basic = new Basic({
     salutation: req.body.salutation,
-    first_name: req.body.first_name,
-    middle_name: req.body.middle_name,
-    last_name: req.body.last_name,
-    phone_extension: req.body.phone_extension,
-    room_number: req.body.room_number,
-    personal_email: req.body.personal_email,
-    cell_phone: req.body.cell_phone,
-    image_url: req.body.image_url,
+    firstName: req.body.firstName,
+    middleName: req.body.middleName,
+    lastName: req.body.lastName,
+    office: req.body.office || "",
+    phoneExtension: req.body.phoneExtension || "",
+    roomNumber: req.body.roomNumber || "",
+    personalEmail: req.body.personalEmail,
+    cellPhone: req.body.cellPhone,
+    position: req.body.position || "",
+    homeAdress: req.body.homeAdress || "",
+    imageUrl: req.body.imageUrl || "",
+    status: req.body.status || true,
     is_suspended: req.body.is_suspended,
     user: req.params.userId
   });
@@ -28,13 +35,13 @@ exports.create = (req, res) => {
     })
     .catch(err => {
         res.status(500).send({
-        message: err.message || 'Some error occurred while creating the Tutorial.',
+        message: err.message || 'Some error occurred while creating the User.',
       });
     });
 
 }
 
-// Find a single Tutorial with an id
+// Find a single User with an id
 exports.findOne = (req, res) => {
   const { id } = req.params;
 
