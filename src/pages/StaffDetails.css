@@ -1,0 +1,22 @@
+form input[type="text"] {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+label {
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+select {
+  font-size: 16px;
+  line-height: 20px;
+}
+.tab_bar.active {
+  color: #3f83f8;
+  border-bottom-color: #3f83f8;
+}
+.tab_bar {
+  color: #64748b;
+  padding-bottom: 16px;
+}
